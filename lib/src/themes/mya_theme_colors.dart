@@ -1,247 +1,158 @@
 import 'package:flutter/material.dart';
 
 @immutable
-class ChmThemeColors extends ThemeExtension<ChmThemeColors> {
-  const ChmThemeColors({
-    required this.primary,
-    required this.primarySubdued,
-    required this.primarySurface,
-    required this.primaryOnSurface,
-    required this.primaryHover,
-    required this.primaryPressed,
-    //
-    required this.points,
-    required this.pointsSubdued,
-    required this.pointsSurface,
-    required this.pointsOnSurface,
-    required this.pointsHover,
-    required this.pointsPressed,
-    //
-    required this.privileges,
-    required this.privilegesSubdued,
-    required this.privilegesSurface,
-    required this.privilegesOnSurface,
-    required this.privilegesHover,
-    required this.privilegesPressed,
-    //
-    required this.entertainment,
-    required this.entertainmentSubdued,
-    required this.entertainmentSurface,
-    required this.entertainmentOnSurface,
-    required this.entertainmentHover,
-    required this.entertainmentPressed,
-    //
-    required this.store,
-    required this.storeSubdued,
-    required this.storeSurface,
-    required this.storeOnSurface,
-    required this.storeHover,
-    required this.storePressed,
-    //
-    required this.platinum,
-    required this.platinumSubdued,
-    required this.platinumSurface,
-    required this.platinumOnSurface,
-    required this.platinumHover,
-    required this.platinumPressed,
-    //
-    required this.gold,
-    required this.goldSubdued,
-    required this.goldSurface,
-    required this.goldOnSurface,
-    required this.goldHover,
-    required this.goldPressed,
-    //
-    required this.emerald,
-    required this.emeraldSubdued,
-    required this.emeraldSurface,
-    required this.emeraldOnSurface,
-    required this.emeraldHover,
-    required this.emeraldPressed,
-    //
-    required this.customer,
-    required this.customerSubdued,
-    required this.customerSurface,
-    required this.customerOnSurface,
-    required this.customerHover,
-    required this.customerPressed,
-    //
-    required this.success,
-    required this.successSubdued,
-    required this.successSurface,
-    required this.successOnSurface,
-    required this.successHover,
-    required this.successPressed,
-    //
-    required this.warning,
-    required this.warningSubdued,
-    required this.warningSurface,
-    required this.warningOnSurface,
-    required this.warningHover,
-    required this.warningPressed,
-    //
-    required this.error,
-    required this.errorSubdued,
-    required this.errorSurface,
-    required this.errorOnSurface,
-    required this.errorHover,
-    required this.errorPressed,
-    //
-    required this.start,
-    required this.startSubdued,
-    required this.startSurface,
-    required this.startOnSurface,
-    required this.startHover,
-    required this.startPressed,
-    //
-    required this.notification,
-    required this.notificationSubdued,
-    required this.notificationSurface,
-    required this.notificationOnSurface,
-    required this.notificationHover,
-    required this.notificationPressed,
-    //
-    required this.fbb,
-    required this.fbbSubdued,
-    required this.fbbSurface,
-    required this.fbbOnSurface,
-    required this.fbbHover,
-    required this.fbbPressed,
-    //
-    required this.text,
-    required this.textSubdued,
-    required this.textDisabled,
+class MyaThemeColors extends ThemeExtension<MyaThemeColors> {
+  const MyaThemeColors({
     required this.black,
     required this.white,
-    required this.backgroundMain,
-    required this.backgroundDisabled,
-    required this.divider,
-    required this.surface,
+    required this.whiteBlack,
+    required this.blackWhite,
+    required this.blackWhiteOverlay,
+    required this.mainOverlay,
+    required this.neutral,
+    required this.bgBg,
+    required this.bgContainer,
+    required this.bgContainerSection,
+    required this.bgBorderContainer,
+    required this.bgContainerDisable,
+    required this.bgBorderDisable,
+    required this.textIconText,
+    required this.textIconMidText,
+    required this.textIconSubdued,
+    required this.textIconOnOverlay,
+    required this.textIconDisable,
+    required this.primaryPrimary,
+    required this.primarySurface,
+    required this.primaryPressed,
+    required this.primaryOnPrimary,
+    required this.primaryOnSurface,
+    required this.primaryBorder,
+    required this.secondarySecondary,
+    required this.secondarySurface,
+    required this.secondaryPressed,
+    required this.secondaryOnSecondary,
+    required this.secondaryOnSurface,
+    required this.secondaryBorder,
+    required this.warningWarning,
+    required this.warningSurface,
+    required this.warningPressed,
+    required this.warningOnWarning,
+    required this.warningOnSurface,
+    required this.warningBorder,
+    required this.errorError,
+    required this.errorSurface,
+    required this.errorPressed,
+    required this.errorOnError,
+    required this.errorOnSurface,
+    required this.errorBorder,
+    required this.notificationNotification,
+    required this.loyaltyPrivilegPrivilege,
+    required this.loyaltyPointsPoints,
+    required this.loyaltyTierPlatinum,
+    required this.loyaltyTierGold,
+    required this.loyaltyTierEmerald,
+    required this.loyaltyTierAisCustomer,
+    required this.entertainmentEntertainment,
+    required this.storeStore,
+    required this.fibreFibre,
+    required this.starStar,
+    required this.elevationColor,
   });
-  final Color primary;
-  final Color primarySubdued;
-  final Color primarySurface;
-  final Color primaryOnSurface;
-  final Color primaryHover;
-  final Color primaryPressed;
 
-  final Color points;
-  final Color pointsSubdued;
-  final Color pointsSurface;
-  final Color pointsOnSurface;
-  final Color pointsHover;
-  final Color pointsPressed;
-
-  final Color privileges;
-  final Color privilegesSubdued;
-  final Color privilegesSurface;
-  final Color privilegesOnSurface;
-  final Color privilegesHover;
-  final Color privilegesPressed;
-
-  final Color entertainment;
-  final Color entertainmentSubdued;
-  final Color entertainmentSurface;
-  final Color entertainmentOnSurface;
-  final Color entertainmentHover;
-  final Color entertainmentPressed;
-
-  final Color store;
-  final Color storeSubdued;
-  final Color storeSurface;
-  final Color storeOnSurface;
-  final Color storeHover;
-  final Color storePressed;
-
-  final Color platinum;
-  final Color platinumSubdued;
-  final Color platinumSurface;
-  final Color platinumOnSurface;
-  final Color platinumHover;
-  final Color platinumPressed;
-
-  final Color gold;
-  final Color goldSubdued;
-  final Color goldSurface;
-  final Color goldOnSurface;
-  final Color goldHover;
-  final Color goldPressed;
-
-  final Color emerald;
-  final Color emeraldSubdued;
-  final Color emeraldSurface;
-  final Color emeraldOnSurface;
-  final Color emeraldHover;
-  final Color emeraldPressed;
-
-  final Color customer;
-  final Color customerSubdued;
-  final Color customerSurface;
-  final Color customerOnSurface;
-  final Color customerHover;
-  final Color customerPressed;
-
-  final Color success;
-  final Color successSubdued;
-  final Color successSurface;
-  final Color successOnSurface;
-  final Color successHover;
-  final Color successPressed;
-
-  final Color warning;
-  final Color warningSubdued;
-  final Color warningSurface;
-  final Color warningOnSurface;
-  final Color warningHover;
-  final Color warningPressed;
-
-  final Color error;
-  final Color errorSubdued;
-  final Color errorSurface;
-  final Color errorOnSurface;
-  final Color errorHover;
-  final Color errorPressed;
-
-  final Color start;
-  final Color startSubdued;
-  final Color startSurface;
-  final Color startOnSurface;
-  final Color startHover;
-  final Color startPressed;
-
-  final Color notification;
-  final Color notificationSubdued;
-  final Color notificationSurface;
-  final Color notificationOnSurface;
-  final Color notificationHover;
-  final Color notificationPressed;
-
-  final Color fbb;
-  final Color fbbSubdued;
-  final Color fbbSurface;
-  final Color fbbOnSurface;
-  final Color fbbHover;
-  final Color fbbPressed;
-
-  final Color text;
-  final Color textSubdued;
-  final Color textDisabled;
-
+  // common
   final Color black;
   final Color white;
-  final Color backgroundMain;
-  final Color backgroundDisabled;
-  final Color divider;
-  final Color surface;
+  final Color whiteBlack;
+  final Color blackWhite;
+  final Color blackWhiteOverlay;
+  final Color mainOverlay;
+  final Color neutral;
+
+  // common/background
+  final Color bgBg;
+  final Color bgContainer;
+  final Color bgContainerSection;
+  final Color bgBorderContainer;
+  final Color bgContainerDisable;
+  final Color bgBorderDisable;
+
+  // common/text-icon
+  final Color textIconText;
+  final Color textIconMidText;
+  final Color textIconSubdued;
+  final Color textIconOnOverlay;
+  final Color textIconDisable;
+
+  // category/primary
+  final Color primaryPrimary;
+  final Color primarySurface;
+  final Color primaryPressed;
+  final Color primaryOnPrimary;
+  final Color primaryOnSurface;
+  final Color primaryBorder;
+
+  // category/secondary
+  final Color secondarySecondary;
+  final Color secondarySurface;
+  final Color secondaryPressed;
+  final Color secondaryOnSecondary;
+  final Color secondaryOnSurface;
+  final Color secondaryBorder;
+
+  // category/warning
+  final Color warningWarning;
+  final Color warningSurface;
+  final Color warningPressed;
+  final Color warningOnWarning;
+  final Color warningOnSurface;
+  final Color warningBorder;
+
+  // category/error
+  final Color errorError;
+  final Color errorSurface;
+  final Color errorPressed;
+  final Color errorOnError;
+  final Color errorOnSurface;
+  final Color errorBorder;
+
+  // category/notification
+  final Color notificationNotification;
+
+  // category/loyalty/privilege
+  final Color loyaltyPrivilegPrivilege;
+
+  // category/loyalty/points
+  final Color loyaltyPointsPoints;
+
+  // category/loyalty/tier
+  final Color loyaltyTierPlatinum;
+  final Color loyaltyTierGold;
+  final Color loyaltyTierEmerald;
+  final Color loyaltyTierAisCustomer;
+
+  // category/entertainment
+  final Color entertainmentEntertainment;
+
+  // category/store
+  final Color storeStore;
+
+  // category/fibre
+  final Color fibreFibre;
+
+  // category/star
+  final Color starStar;
+
+  // elevation
+  final Color elevationColor;
 
   @override
-  ChmThemeColors copyWith() {
+  MyaThemeColors copyWith() {
     //TODO: if implement copy with, must change declaration to nullable.
     throw UnimplementedError();
   }
 
   @override
-  ChmThemeColors lerp(ChmThemeColors? other, double t) {
+  MyaThemeColors lerp(MyaThemeColors? other, double t) {
     //TODO
     return this;
   }
