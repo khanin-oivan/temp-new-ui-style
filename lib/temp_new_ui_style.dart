@@ -1,7 +1,7 @@
 /// Support for doing something awesome.
 ///
 /// More dartdocs go here.
-library;
+library temp_new_ui_style;
 
 export 'src/temp_new_ui_style_base.dart';
 
