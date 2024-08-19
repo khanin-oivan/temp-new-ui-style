@@ -33,6 +33,12 @@ class MyaThemeColors extends ThemeExtension<MyaThemeColors> {
     required this.secondaryOnSecondary,
     required this.secondaryOnSurface,
     required this.secondaryBorder,
+    required this.successSuccess,
+    required this.successOnSurface,
+    required this.successSurface,
+    required this.successOnSuccess,
+    required this.successPressed,
+    required this.successBorder,
     required this.warningWarning,
     required this.warningSurface,
     required this.warningPressed,
@@ -98,6 +104,14 @@ class MyaThemeColors extends ThemeExtension<MyaThemeColors> {
   final Color secondaryOnSecondary;
   final Color secondaryOnSurface;
   final Color secondaryBorder;
+
+  // category/warning
+  final Color successSuccess;
+  final Color successOnSurface;
+  final Color successSurface;
+  final Color successOnSuccess;
+  final Color successPressed;
+  final Color successBorder;
 
   // category/warning
   final Color warningWarning;
