@@ -3,81 +3,81 @@ import 'package:flutter/material.dart';
 // COLORS
 // -- Primary
 const Color colorPrimary10 = Color(0xff1F3102);
-const Color colorPrimary20 = Color(0xff1F3102);
-const Color colorPrimary30 = Color(0xff1F3102);
-const Color colorPrimary40 = Color(0xff1F3102);
-const Color colorPrimary50 = Color(0xff1F3102);
-const Color colorPrimary60 = Color(0xff1F3102);
-const Color colorPrimary70 = Color(0xff1F3102);
-const Color colorPrimary80 = Color(0xff1F3102);
-const Color colorPrimary90 = Color(0xff1F3102);
-const Color colorPrimary95 = Color(0xff1F3102);
-const Color colorPrimary99 = Color(0xff1F3102);
+const Color colorPrimary20 = Color(0xff3E580F);
+const Color colorPrimary30 = Color(0xff4A690B);
+const Color colorPrimary40 = Color(0xff5C8506);
+const Color colorPrimary50 = Color(0xff7AB000);
+const Color colorPrimary60 = Color(0xff9EDB07);
+const Color colorPrimary70 = Color(0xffB8F416);
+const Color colorPrimary80 = Color(0xffD3FE58);
+const Color colorPrimary90 = Color(0xffE6FF95);
+const Color colorPrimary95 = Color(0xffF3FFC7);
+const Color colorPrimary99 = Color(0xffFBFFE5);
 
 // -- Secondary
-const Color colorSecondary10 = Color(0xff1F3102);
-const Color colorSecondary20 = Color(0xff1F3102);
-const Color colorSecondary30 = Color(0xff1F3102);
-const Color colorSecondary40 = Color(0xff1F3102);
-const Color colorSecondary50 = Color(0xff1F3102);
-const Color colorSecondary60 = Color(0xff1F3102);
-const Color colorSecondary70 = Color(0xff1F3102);
-const Color colorSecondary80 = Color(0xff1F3102);
-const Color colorSecondary90 = Color(0xff1F3102);
-const Color colorSecondary95 = Color(0xff1F3102);
-const Color colorSecondary99 = Color(0xff1F3102);
+const Color colorSecondary10 = Color(0xff25272C);
+const Color colorSecondary20 = Color(0xff383A42);
+const Color colorSecondary30 = Color(0xff3F434D);
+const Color colorSecondary40 = Color(0xff474C58);
+const Color colorSecondary50 = Color(0xff5A616F);
+const Color colorSecondary60 = Color(0xff6F7788);
+const Color colorSecondary70 = Color(0xff8D94A3);
+const Color colorSecondary80 = Color(0xffB5BAC4);
+const Color colorSecondary90 = Color(0xffD8DBDF);
+const Color colorSecondary95 = Color(0xffEDEEF1);
+const Color colorSecondary99 = Color(0xffF7F8F8);
 
 // -- Success
-const Color colorSuccess10 = Color(0xff1F3102);
-const Color colorSuccess20 = Color(0xff1F3102);
-const Color colorSuccess30 = Color(0xff1F3102);
-const Color colorSuccess40 = Color(0xff1F3102);
-const Color colorSuccess50 = Color(0xff1F3102);
-const Color colorSuccess60 = Color(0xff1F3102);
-const Color colorSuccess70 = Color(0xff1F3102);
-const Color colorSuccess80 = Color(0xff1F3102);
-const Color colorSuccess90 = Color(0xff1F3102);
-const Color colorSuccess95 = Color(0xff1F3102);
-const Color colorSuccess99 = Color(0xff1F3102);
+const Color colorSuccess10 = Color(0xff032E0E);
+const Color colorSuccess20 = Color(0xff053D13);
+const Color colorSuccess30 = Color(0xff0B521D);
+const Color colorSuccess40 = Color(0xff126325);
+const Color colorSuccess50 = Color(0xff207A36);
+const Color colorSuccess60 = Color(0xff319949);
+const Color colorSuccess70 = Color(0xff4CB564);
+const Color colorSuccess80 = Color(0xff6CD083);
+const Color colorSuccess90 = Color(0xffA4EBB4);
+const Color colorSuccess95 = Color(0xffE0FAE5);
+const Color colorSuccess99 = Color(0xffEDFCF0);
 
 // -- Warning
-const Color colorWarning10 = Color(0xff1F3102);
-const Color colorWarning20 = Color(0xff1F3102);
-const Color colorWarning30 = Color(0xff1F3102);
-const Color colorWarning40 = Color(0xff1F3102);
-const Color colorWarning50 = Color(0xff1F3102);
-const Color colorWarning60 = Color(0xff1F3102);
-const Color colorWarning70 = Color(0xff1F3102);
-const Color colorWarning80 = Color(0xff1F3102);
-const Color colorWarning90 = Color(0xff1F3102);
-const Color colorWarning95 = Color(0xff1F3102);
-const Color colorWarning99 = Color(0xff1F3102);
+const Color colorWarning10 = Color(0xff332A01);
+const Color colorWarning20 = Color(0xff5C4B02);
+const Color colorWarning30 = Color(0xff756105);
+const Color colorWarning40 = Color(0xff947A09);
+const Color colorWarning50 = Color(0xffB8990F);
+const Color colorWarning60 = Color(0xffE0BB12);
+const Color colorWarning70 = Color(0xffFACF15);
+const Color colorWarning80 = Color(0xffFDE035);
+const Color colorWarning90 = Color(0xffFEF28A);
+const Color colorWarning95 = Color(0xffFCF8C0);
+const Color colorWarning99 = Color(0xffFCFADE);
 
 // -- Danger
-const Color colorDanger10 = Color(0xff1F3102);
-const Color colorDanger20 = Color(0xff1F3102);
-const Color colorDanger30 = Color(0xff1F3102);
-const Color colorDanger40 = Color(0xff1F3102);
-const Color colorDanger50 = Color(0xff1F3102);
-const Color colorDanger60 = Color(0xff1F3102);
-const Color colorDanger70 = Color(0xff1F3102);
-const Color colorDanger80 = Color(0xff1F3102);
-const Color colorDanger90 = Color(0xff1F3102);
-const Color colorDanger95 = Color(0xff1F3102);
-const Color colorDanger99 = Color(0xff1F3102);
+const Color colorDanger10 = Color(0xff3D1416);
+const Color colorDanger20 = Color(0xff752125);
+const Color colorDanger30 = Color(0xff991F25);
+const Color colorDanger40 = Color(0xffBE1720);
+const Color colorDanger50 = Color(0xffD91F28);
+const Color colorDanger60 = Color(0xffF53E58);
+const Color colorDanger70 = Color(0xffFD6C74);
+const Color colorDanger80 = Color(0xffFF999E);
+const Color colorDanger90 = Color(0xffFFC8CB);
+const Color colorDanger95 = Color(0xffFFE5E7);
+const Color colorDanger99 = Color(0xffFEF2F3);
 
 // -- AIS Customer
-const Color colorAisCustomer10 = Color(0xff1F3102);
-const Color colorAisCustomer20 = Color(0xff1F3102);
-const Color colorAisCustomer30 = Color(0xff1F3102);
-const Color colorAisCustomer40 = Color(0xff1F3102);
-const Color colorAisCustomer50 = Color(0xff1F3102);
-const Color colorAisCustomer60 = Color(0xff1F3102);
-const Color colorAisCustomer70 = Color(0xff1F3102);
-const Color colorAisCustomer80 = Color(0xff1F3102);
-const Color colorAisCustomer90 = Color(0xff1F3102);
-const Color colorAisCustomer95 = Color(0xff1F3102);
-const Color colorAisCustomer99 = Color(0xff1F3102);
+const Color colorAisCustomer10 = Color(0xff2E3805);
+const Color colorAisCustomer20 = Color(0xff435207);
+const Color colorAisCustomer30 = Color(0xff62780C);
+const Color colorAisCustomer40 = Color(0xff839E18);
+const Color colorAisCustomer50 = Color(0xffA5C427);
+const Color colorAisCustomer60 = Color(0xffC7EB3B);
+const Color colorAisCustomer70 = Color(0xffDAF765);
+const Color colorAisCustomer80 = Color(0xffE9FF91);
+const Color colorAisCustomer90 = Color(0xffF1FFBA);
+const Color colorAisCustomer95 = Color(0xffF6FFD4);
+const Color colorAisCustomer99 = Color(0xffFBFFEB);
 
 // -- Emerald
 const Color colorEmerald10 = Color(0xff1F3102);
