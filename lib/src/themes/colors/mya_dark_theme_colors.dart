@@ -1,5 +1,11 @@
-import 'package:temp_new_ui_style/src/themes/mya_theme_colors.dart';
-import 'package:temp_new_ui_style/src/themes/tokens/color_tokens.dart';
+import 'package:flutter/material.dart';
+import 'package:temp_new_ui_style/src/themes/colors/mya_theme_colors.dart';
+import 'package:temp_new_ui_style/src/themes/colors/color_tokens.dart';
+
+final myaLightTheme =
+    ThemeData.light().copyWith(extensions: <ThemeExtension<dynamic>>[
+  myaDarkThemeColors,
+]);
 
 const myaDarkThemeColors = MyaThemeColors(
   black: kColorBlack100,
