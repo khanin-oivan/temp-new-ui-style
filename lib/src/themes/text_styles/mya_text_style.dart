@@ -11,8 +11,11 @@ class MyaTextStyle extends ThemeExtension<MyaTextStyle> {
     required this.titleLarge,
     required this.titleMedium,
     required this.titleSmall,
-    required this.bodyLarge,
-    required this.bodyMedium,
+    required this.bodyLargeRegular,
+    required this.bodyLargeMedium,
+    required this.bodyLargeBold,
+    required this.bodyMediumRegular,
+    required this.bodyMediumMedium,
     required this.bodySmall,
     required this.labelLarge,
     required this.labelMedium,
@@ -28,8 +31,11 @@ class MyaTextStyle extends ThemeExtension<MyaTextStyle> {
   final TextStyle titleLarge;
   final TextStyle titleMedium;
   final TextStyle titleSmall;
-  final TextStyle bodyLarge;
-  final TextStyle bodyMedium;
+  final TextStyle bodyLargeRegular;
+  final TextStyle bodyLargeMedium;
+  final TextStyle bodyLargeBold;
+  final TextStyle bodyMediumRegular;
+  final TextStyle bodyMediumMedium;
   final TextStyle bodySmall;
   final TextStyle labelLarge;
   final TextStyle labelMedium;
