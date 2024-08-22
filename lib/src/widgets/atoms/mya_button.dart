@@ -86,50 +86,54 @@ class _ChmButtonCountdownState extends State<ChmButtonCountdown> {
           isPressed = false;
         });
       },
-      child: ElevatedButton(
-        onPressed: isDisable ? null : widget.onPressed,
-        style: buttonStyle,
-        child: Row(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            if (widget.leadingIconKey != null)
-              Padding(
-                padding: EdgeInsets.only(left: isLargeButton ? 16 : 12),
-                child: Icon(
-                  Icons.circle_rounded,
-                  size: iconSize,
-                  color: foregroundColor,
+      child: Opacity(
+        opacity: isDisable ? 0.5 : 1.0,
+        child: ElevatedButton(
+          onPressed: isDisable ? null : widget.onPressed,
+          style: buttonStyle,
+          child: Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              if (widget.leadingIconKey != null)
+                Padding(
+                  padding: EdgeInsets.only(left: isLargeButton ? 16 : 12),
+                  child: Icon(
+                    Icons.circle_rounded,
+                    size: iconSize,
+                    color: foregroundColor,
+                  ),
+                  // child: ChmIcon(
+                  //   keyIconName: widget.leadingIconKey as String,
+                  //   color: foregroundColor,
+                  //   width: iconSize,
+                  //   height: iconSize,
+                  // ),
                 ),
-                // child: ChmIcon(
-                //   keyIconName: widget.leadingIconKey as String,
-                //   color: foregroundColor,
-                //   width: iconSize,
-                //   height: iconSize,
-                // ),
-              ),
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: isLargeButton ? 16 : 8),
-              child: Text(
-                widget.label,
-                style: myaTextStyle.bodyLargeBold,
-              ),
-            ),
-            if (widget.trailingIconKey != null)
               Padding(
-                padding: EdgeInsets.only(right: isLargeButton ? 16 : 12),
-                child: Icon(
-                  Icons.circle_rounded,
-                  size: iconSize,
-                  color: foregroundColor,
+                padding:
+                    EdgeInsets.symmetric(horizontal: isLargeButton ? 16 : 8),
+                child: Text(
+                  widget.label,
+                  style: myaTextStyle.bodyLargeBold,
                 ),
-                // child: ChmIcon(
-                //   keyIconName: widget.trailingIconKey as String,
-                //   color: foregroundColor,
-                //   width: iconSize,
-                //   height: iconSize,
-                // ),
               ),
-          ],
+              if (widget.trailingIconKey != null)
+                Padding(
+                  padding: EdgeInsets.only(right: isLargeButton ? 16 : 12),
+                  child: Icon(
+                    Icons.circle_rounded,
+                    size: iconSize,
+                    color: foregroundColor,
+                  ),
+                  // child: ChmIcon(
+                  //   keyIconName: widget.trailingIconKey as String,
+                  //   color: foregroundColor,
+                  //   width: iconSize,
+                  //   height: iconSize,
+                  // ),
+                ),
+            ],
+          ),
         ),
       ),
     );
