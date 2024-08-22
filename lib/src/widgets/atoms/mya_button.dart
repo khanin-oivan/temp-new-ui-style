@@ -61,11 +61,11 @@ class _ChmButtonCountdownState extends State<ChmButtonCountdown> {
             : {};
 
     final ButtonStyle buttonStyle = _getButtonStyle(
-      style: widget.style,
-      isLargeButton: isLargeButton,
-      width: widget.width,
-      colors: myaColors,
-    );
+        style: widget.style,
+        isLargeButton: isLargeButton,
+        width: widget.width,
+        colors: myaColors,
+        theme: widget.theme);
 
     final Color? foregroundColor = buttonStyle.foregroundColor!.resolve(states);
 
@@ -136,11 +136,13 @@ class _ChmButtonCountdownState extends State<ChmButtonCountdown> {
   }
 }
 
-ButtonStyle _getButtonStyle(
-    {required MyaButtonStyle style,
-    required bool isLargeButton,
-    double? width,
-    required MyaThemeColors colors}) {
+ButtonStyle _getButtonStyle({
+  required MyaButtonStyle style,
+  required bool isLargeButton,
+  double? width,
+  required MyaThemeColors colors,
+  required MyaButtonTheme theme,
+}) {
   final commonButtonStyle = ButtonStyle(
     padding: WidgetStateProperty.all(EdgeInsets.zero),
     splashFactory: NoSplash.splashFactory,
@@ -155,109 +157,331 @@ ButtonStyle _getButtonStyle(
     borderRadius: BorderRadius.circular(isLargeButton ? 16 : 10),
   );
 
-  switch (style) {
-    case (MyaButtonStyle.filled):
-      return commonButtonStyle.copyWith(
-        shape: WidgetStateProperty.all(commonShape),
-        foregroundColor: WidgetStateProperty.resolveWith<Color?>(
-          // Color of text and icon
-          (Set<WidgetState> states) {
-            return colors.primaryOnPrimary; // Defer to the widget's default.
-          },
-        ),
-        backgroundColor: WidgetStateProperty.resolveWith<Color?>(
-          (Set<WidgetState> states) {
-            if (states.contains(WidgetState.pressed)) {
-              return colors.primaryPressed;
-            }
-            return colors.primaryPrimary; // Defer to the widget's default.
-          },
-        ),
-      );
+  switch (theme) {
+    case (MyaButtonTheme.primary):
+      switch (style) {
+        case (MyaButtonStyle.filled):
+          return commonButtonStyle.copyWith(
+            shape: WidgetStateProperty.all(commonShape),
+            foregroundColor: WidgetStateProperty.resolveWith<Color?>(
+              // Color of text and icon
+              (Set<WidgetState> states) {
+                return colors
+                    .primaryOnPrimary; // Defer to the widget's default.
+              },
+            ),
+            backgroundColor: WidgetStateProperty.resolveWith<Color?>(
+              (Set<WidgetState> states) {
+                if (states.contains(WidgetState.pressed)) {
+                  return colors.primaryPressed;
+                }
+                return colors.primaryPrimary; // Defer to the widget's default.
+              },
+            ),
+          );
 
-    case (MyaButtonStyle.tonalFilled):
-      return commonButtonStyle.copyWith(
-        shape: WidgetStateProperty.all(commonShape),
-        foregroundColor: WidgetStateProperty.resolveWith<Color?>(
-          // Color of text and icon
-          (Set<WidgetState> states) {
-            return colors.primaryOnPrimary; // Defer to the widget's default.
-          },
-        ),
-        backgroundColor: WidgetStateProperty.resolveWith<Color?>(
-          (Set<WidgetState> states) {
-            if (states.contains(WidgetState.pressed)) {
-              return colors.secondaryPressed;
-            }
-            return colors.secondarySecondary; // Defer to the widget's default.
-          },
-        ),
-      );
+        case (MyaButtonStyle.tonalFilled):
+          return commonButtonStyle.copyWith(
+            shape: WidgetStateProperty.all(commonShape),
+            foregroundColor: WidgetStateProperty.resolveWith<Color?>(
+              // Color of text and icon
+              (Set<WidgetState> states) {
+                return colors
+                    .primaryOnPrimary; // Defer to the widget's default.
+              },
+            ),
+            backgroundColor: WidgetStateProperty.resolveWith<Color?>(
+              (Set<WidgetState> states) {
+                if (states.contains(WidgetState.pressed)) {
+                  return colors.secondaryPressed;
+                }
+                return colors
+                    .secondarySecondary; // Defer to the widget's default.
+              },
+            ),
+          );
 
-    case (MyaButtonStyle.outlined):
-      return commonButtonStyle.copyWith(
-        shape: WidgetStateProperty.resolveWith((states) {
-          return commonShape.copyWith(
-              side: BorderSide(width: 1, color: colors.secondaryOnSurface));
-        }),
-        foregroundColor: WidgetStateProperty.resolveWith<Color?>(
-          (Set<WidgetState> states) {
-            return colors.secondaryOnSurface; // Defer to the widget's default.
-          },
-        ),
-        backgroundColor: WidgetStateProperty.resolveWith<Color?>(
-          (Set<WidgetState> states) {
-            if (states.contains(WidgetState.pressed)) {
-              return colors.secondaryPressed;
-            }
-            return colors.white; // Defer to the widget's default.
-          },
-        ),
-      );
-    case (MyaButtonStyle.text):
-      return commonButtonStyle.copyWith(
-        shape: WidgetStateProperty.all(commonShape),
-        foregroundColor: WidgetStateProperty.resolveWith<Color?>(
-          // Color of text and icon
-          (Set<WidgetState> states) {
-            return colors.primaryOnSurface; // Defer to the widget's default.
-          },
-        ),
-        backgroundColor: WidgetStateProperty.resolveWith<Color?>(
-          (Set<WidgetState> states) {
-            if (states.contains(WidgetState.pressed)) {
-              return colors.primarySurface;
-            }
+        case (MyaButtonStyle.outlined):
+          return commonButtonStyle.copyWith(
+            shape: WidgetStateProperty.resolveWith((states) {
+              return commonShape.copyWith(
+                  side: BorderSide(width: 1, color: colors.secondaryOnSurface));
+            }),
+            foregroundColor: WidgetStateProperty.resolveWith<Color?>(
+              (Set<WidgetState> states) {
+                return colors
+                    .secondaryOnSurface; // Defer to the widget's default.
+              },
+            ),
+            backgroundColor: WidgetStateProperty.resolveWith<Color?>(
+              (Set<WidgetState> states) {
+                if (states.contains(WidgetState.pressed)) {
+                  return colors.secondaryPressed;
+                }
+                return colors.white; // Defer to the widget's default.
+              },
+            ),
+          );
+        case (MyaButtonStyle.text):
+          return commonButtonStyle.copyWith(
+            shape: WidgetStateProperty.all(commonShape),
+            foregroundColor: WidgetStateProperty.resolveWith<Color?>(
+              // Color of text and icon
+              (Set<WidgetState> states) {
+                return colors
+                    .primaryOnSurface; // Defer to the widget's default.
+              },
+            ),
+            backgroundColor: WidgetStateProperty.resolveWith<Color?>(
+              (Set<WidgetState> states) {
+                if (states.contains(WidgetState.pressed)) {
+                  return colors.primarySurface;
+                }
 
-            return colors.white; // Defer to the widget's default.
-          },
-        ),
-      );
-    case (MyaButtonStyle.elevated):
-      return commonButtonStyle.copyWith(
-        elevation: WidgetStateProperty.resolveWith<double?>(
-          (Set<WidgetState> states) {
-            if (states.contains(WidgetState.pressed)) {
-              return 0;
-            }
-            return 2;
-          },
-        ),
-        shape: WidgetStateProperty.all(commonShape),
-        foregroundColor: WidgetStateProperty.resolveWith<Color?>(
-          // Color of text and icon
-          (Set<WidgetState> states) {
-            return colors.primaryOnPrimary; // Defer to the widget's default.
-          },
-        ),
-        backgroundColor: WidgetStateProperty.resolveWith<Color?>(
-          (Set<WidgetState> states) {
-            if (states.contains(WidgetState.pressed)) {
-              return colors.primaryPressed;
-            }
-            return colors.primaryPrimary; // Defer to the widget's default.
-          },
-        ),
-      );
+                return colors.white; // Defer to the widget's default.
+              },
+            ),
+          );
+        case (MyaButtonStyle.elevated):
+          return commonButtonStyle.copyWith(
+            elevation: WidgetStateProperty.resolveWith<double?>(
+              (Set<WidgetState> states) {
+                if (states.contains(WidgetState.pressed)) {
+                  return 0;
+                }
+                return 2;
+              },
+            ),
+            shape: WidgetStateProperty.all(commonShape),
+            foregroundColor: WidgetStateProperty.resolveWith<Color?>(
+              // Color of text and icon
+              (Set<WidgetState> states) {
+                return colors
+                    .primaryOnPrimary; // Defer to the widget's default.
+              },
+            ),
+            backgroundColor: WidgetStateProperty.resolveWith<Color?>(
+              (Set<WidgetState> states) {
+                if (states.contains(WidgetState.pressed)) {
+                  return colors.primaryPressed;
+                }
+                return colors.primaryPrimary; // Defer to the widget's default.
+              },
+            ),
+          );
+      }
+    case (MyaButtonTheme.warning):
+      switch (style) {
+        case (MyaButtonStyle.filled):
+        case (MyaButtonStyle.tonalFilled): // Not available in design
+        case (MyaButtonStyle.outlined): // Not available in design
+          return commonButtonStyle.copyWith(
+            shape: WidgetStateProperty.all(commonShape),
+            backgroundColor: WidgetStateProperty.resolveWith<Color?>(
+              (Set<WidgetState> states) {
+                if (states.contains(WidgetState.pressed)) {
+                  return colors.warningPressed;
+                }
+                return colors.warningWarning; // Defer to the widget's default.
+              },
+            ),
+            foregroundColor: WidgetStateProperty.resolveWith<Color?>(
+              // Color of text and icon
+              (Set<WidgetState> states) {
+                return colors
+                    .warningOnWarning; // Defer to the widget's default.
+              },
+            ),
+          );
+
+        case (MyaButtonStyle.text):
+          return commonButtonStyle.copyWith(
+            shape: WidgetStateProperty.all(commonShape),
+            backgroundColor: WidgetStateProperty.resolveWith<Color?>(
+              (Set<WidgetState> states) {
+                if (states.contains(WidgetState.pressed)) {
+                  return colors.warningSurface;
+                }
+
+                return colors.transparent; // Defer to the widget's default.
+              },
+            ),
+            foregroundColor: WidgetStateProperty.resolveWith<Color?>(
+              // Color of text and icon
+              (Set<WidgetState> states) {
+                return colors
+                    .warningOnSurface; // Defer to the widget's default.
+              },
+            ),
+          );
+        case (MyaButtonStyle.elevated):
+          return commonButtonStyle.copyWith(
+            elevation: WidgetStateProperty.resolveWith<double?>(
+              (Set<WidgetState> states) {
+                if (states.contains(WidgetState.pressed)) {
+                  return 0;
+                }
+                return 2;
+              },
+            ),
+            shape: WidgetStateProperty.all(commonShape),
+            backgroundColor: WidgetStateProperty.resolveWith<Color?>(
+              (Set<WidgetState> states) {
+                if (states.contains(WidgetState.pressed)) {
+                  return colors.warningPressed;
+                }
+                return colors.warningWarning; // Defer to the widget's default.
+              },
+            ),
+            foregroundColor: WidgetStateProperty.resolveWith<Color?>(
+              // Color of text and icon
+              (Set<WidgetState> states) {
+                return colors
+                    .warningOnWarning; // Defer to the widget's default.
+              },
+            ),
+          );
+      }
+    case (MyaButtonTheme.error):
+      switch (style) {
+        case (MyaButtonStyle.filled):
+        case (MyaButtonStyle.tonalFilled): // Not available in design
+        case (MyaButtonStyle.outlined): // Not available in design
+          return commonButtonStyle.copyWith(
+            shape: WidgetStateProperty.all(commonShape),
+            backgroundColor: WidgetStateProperty.resolveWith<Color?>(
+              (Set<WidgetState> states) {
+                if (states.contains(WidgetState.pressed)) {
+                  return colors.errorPressed;
+                }
+                return colors.errorError; // Defer to the widget's default.
+              },
+            ),
+            foregroundColor: WidgetStateProperty.resolveWith<Color?>(
+              // Color of text and icon
+              (Set<WidgetState> states) {
+                return colors.errorOnError; // Defer to the widget's default.
+              },
+            ),
+          );
+
+        case (MyaButtonStyle.text):
+          return commonButtonStyle.copyWith(
+            shape: WidgetStateProperty.all(commonShape),
+            backgroundColor: WidgetStateProperty.resolveWith<Color?>(
+              (Set<WidgetState> states) {
+                if (states.contains(WidgetState.pressed)) {
+                  return colors.errorSurface;
+                }
+
+                return colors.transparent; // Defer to the widget's default.
+              },
+            ),
+            foregroundColor: WidgetStateProperty.resolveWith<Color?>(
+              // Color of text and icon
+              (Set<WidgetState> states) {
+                return colors.errorOnSurface; // Defer to the widget's default.
+              },
+            ),
+          );
+        case (MyaButtonStyle.elevated):
+          return commonButtonStyle.copyWith(
+            elevation: WidgetStateProperty.resolveWith<double?>(
+              (Set<WidgetState> states) {
+                if (states.contains(WidgetState.pressed)) {
+                  return 0;
+                }
+                return 2;
+              },
+            ),
+            shape: WidgetStateProperty.all(commonShape),
+            backgroundColor: WidgetStateProperty.resolveWith<Color?>(
+              (Set<WidgetState> states) {
+                if (states.contains(WidgetState.pressed)) {
+                  return colors.errorPressed;
+                }
+                return colors.errorError; // Defer to the widget's default.
+              },
+            ),
+            foregroundColor: WidgetStateProperty.resolveWith<Color?>(
+              // Color of text and icon
+              (Set<WidgetState> states) {
+                return colors.errorOnError; // Defer to the widget's default.
+              },
+            ),
+          );
+      }
+    case (MyaButtonTheme.success):
+      switch (style) {
+        case (MyaButtonStyle.filled):
+        case (MyaButtonStyle.tonalFilled): // Not available in design
+        case (MyaButtonStyle.outlined): // Not available in design
+          return commonButtonStyle.copyWith(
+            shape: WidgetStateProperty.all(commonShape),
+            backgroundColor: WidgetStateProperty.resolveWith<Color?>(
+              (Set<WidgetState> states) {
+                if (states.contains(WidgetState.pressed)) {
+                  return colors.successPressed;
+                }
+                return colors.successSuccess; // Defer to the widget's default.
+              },
+            ),
+            foregroundColor: WidgetStateProperty.resolveWith<Color?>(
+              // Color of text and icon
+              (Set<WidgetState> states) {
+                return colors
+                    .successOnSuccess; // Defer to the widget's default.
+              },
+            ),
+          );
+
+        case (MyaButtonStyle.text):
+          return commonButtonStyle.copyWith(
+            shape: WidgetStateProperty.all(commonShape),
+            backgroundColor: WidgetStateProperty.resolveWith<Color?>(
+              (Set<WidgetState> states) {
+                if (states.contains(WidgetState.pressed)) {
+                  return colors.successSurface;
+                }
+
+                return colors.transparent; // Defer to the widget's default.
+              },
+            ),
+            foregroundColor: WidgetStateProperty.resolveWith<Color?>(
+              // Color of text and icon
+              (Set<WidgetState> states) {
+                return colors
+                    .successOnSurface; // Defer to the widget's default.
+              },
+            ),
+          );
+        case (MyaButtonStyle.elevated):
+          return commonButtonStyle.copyWith(
+            elevation: WidgetStateProperty.resolveWith<double?>(
+              (Set<WidgetState> states) {
+                if (states.contains(WidgetState.pressed)) {
+                  return 0;
+                }
+                return 2;
+              },
+            ),
+            shape: WidgetStateProperty.all(commonShape),
+            backgroundColor: WidgetStateProperty.resolveWith<Color?>(
+              (Set<WidgetState> states) {
+                if (states.contains(WidgetState.pressed)) {
+                  return colors.successPressed;
+                }
+                return colors.successSuccess; // Defer to the widget's default.
+              },
+            ),
+            foregroundColor: WidgetStateProperty.resolveWith<Color?>(
+              // Color of text and icon
+              (Set<WidgetState> states) {
+                return colors
+                    .successOnSuccess; // Defer to the widget's default.
+              },
+            ),
+          );
+      }
   }
 }

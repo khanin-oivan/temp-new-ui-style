@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:temp_new_ui_style/src/themes/colors/mya_theme_colors.dart';
 import 'package:temp_new_ui_style/src/themes/colors/color_tokens.dart';
 
@@ -9,6 +10,7 @@ const myaLightThemeColors = MyaThemeColors(
   blackWhiteOverlay: kColorBlack5,
   mainOverlay: kColorNeutral70,
   neutral: kColorNeutral50,
+  transparent: Colors.transparent,
   //
   bgBg: kColorNeutral90,
   bgContainer: kColorNeutral90,
