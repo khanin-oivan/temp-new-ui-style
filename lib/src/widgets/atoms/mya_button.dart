@@ -1,5 +1,3 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:temp_new_ui_style/src/themes/colors/mya_theme_colors.dart';
 import 'package:temp_new_ui_style/src/themes/text_styles/mya_text_style.dart';
@@ -62,8 +60,12 @@ class _ChmButtonCountdownState extends State<ChmButtonCountdown> {
             ? {WidgetState.pressed}
             : {};
 
-    final ButtonStyle buttonStyle =
-        _getButtonStyle(widget.style, isLargeButton, widget.width);
+    final ButtonStyle buttonStyle = _getButtonStyle(
+      style: widget.style,
+      isLargeButton: isLargeButton,
+      width: widget.width,
+      colors: myaColors,
+    );
 
     final Color? foregroundColor = buttonStyle.foregroundColor!.resolve(states);
 
@@ -135,7 +137,10 @@ class _ChmButtonCountdownState extends State<ChmButtonCountdown> {
 }
 
 ButtonStyle _getButtonStyle(
-    MyaButtonStyle style, bool isLargeButton, double? width) {
+    {required MyaButtonStyle style,
+    required bool isLargeButton,
+    double? width,
+    required MyaThemeColors colors}) {
   final commonButtonStyle = ButtonStyle(
     padding: WidgetStateProperty.all(EdgeInsets.zero),
     splashFactory: NoSplash.splashFactory,
@@ -157,77 +162,55 @@ ButtonStyle _getButtonStyle(
         foregroundColor: WidgetStateProperty.resolveWith<Color?>(
           // Color of text and icon
           (Set<WidgetState> states) {
-            if (states.contains(WidgetState.disabled)) {
-              return BaseColors.textDisable;
-            }
-            if (states.contains(WidgetState.pressed) ||
-                states.contains(WidgetState.hovered)) {
-              return BaseColors.whiteColor;
-            }
-            return BaseColors
-                .allPrimaryPrimary10; // Defer to the widget's default.
+            return colors.primaryOnPrimary; // Defer to the widget's default.
           },
         ),
         backgroundColor: WidgetStateProperty.resolveWith<Color?>(
           (Set<WidgetState> states) {
-            if (states.contains(WidgetState.disabled)) {
-              return BaseColors.disableBackground;
-            }
-            if (states.contains(WidgetState.hovered)) {
-              return BaseColors.primaryHover;
-            }
             if (states.contains(WidgetState.pressed)) {
-              return BaseColors.primaryPressed;
+              return colors.primaryPressed;
             }
-            return BaseColors.primaryPrimary; // Defer to the widget's default.
+            return colors.primaryPrimary; // Defer to the widget's default.
           },
         ),
       );
-    case (MyaButtonStyle.outlined):
+
+    case (MyaButtonStyle.tonalFilled):
       return commonButtonStyle.copyWith(
-        shape: WidgetStateProperty.resolveWith((states) {
-          if (states.contains(WidgetState.disabled)) {
-            return commonShape.copyWith(
-                side:
-                    const BorderSide(width: 1, color: BaseColors.textDisable));
-          }
-          if (states.contains(WidgetState.pressed)) {
-            return commonShape.copyWith(
-                side: const BorderSide(
-                    width: 1, color: BaseColors.primaryPressed));
-          }
-          if (states.contains(WidgetState.hovered)) {
-            return commonShape.copyWith(
-                side:
-                    const BorderSide(width: 1, color: BaseColors.primaryHover));
-          }
-          return commonShape.copyWith(
-              side: const BorderSide(
-                  width: 1, color: BaseColors.allPrimaryPrimary10));
-        }),
+        shape: WidgetStateProperty.all(commonShape),
         foregroundColor: WidgetStateProperty.resolveWith<Color?>(
           // Color of text and icon
           (Set<WidgetState> states) {
-            if (states.contains(WidgetState.disabled)) {
-              return BaseColors.textDisable;
-            }
-            if (states.contains(WidgetState.pressed)) {
-              return BaseColors.primaryPressed;
-            }
-
-            if (states.contains(WidgetState.hovered)) {
-              return BaseColors.primaryHover;
-            }
-            return BaseColors
-                .allPrimaryPrimary10; // Defer to the widget's default.
+            return colors.primaryOnPrimary; // Defer to the widget's default.
           },
         ),
         backgroundColor: WidgetStateProperty.resolveWith<Color?>(
           (Set<WidgetState> states) {
             if (states.contains(WidgetState.pressed)) {
-              return BaseColors.surfacelight5;
+              return colors.secondaryPressed;
             }
-            return BaseColors.whiteColor; // Defer to the widget's default.
+            return colors.secondarySecondary; // Defer to the widget's default.
+          },
+        ),
+      );
+
+    case (MyaButtonStyle.outlined):
+      return commonButtonStyle.copyWith(
+        shape: WidgetStateProperty.resolveWith((states) {
+          return commonShape.copyWith(
+              side: BorderSide(width: 1, color: colors.secondaryOnSurface));
+        }),
+        foregroundColor: WidgetStateProperty.resolveWith<Color?>(
+          (Set<WidgetState> states) {
+            return colors.secondaryOnSurface; // Defer to the widget's default.
+          },
+        ),
+        backgroundColor: WidgetStateProperty.resolveWith<Color?>(
+          (Set<WidgetState> states) {
+            if (states.contains(WidgetState.pressed)) {
+              return colors.secondaryPressed;
+            }
+            return colors.white; // Defer to the widget's default.
           },
         ),
       );
@@ -237,23 +220,16 @@ ButtonStyle _getButtonStyle(
         foregroundColor: WidgetStateProperty.resolveWith<Color?>(
           // Color of text and icon
           (Set<WidgetState> states) {
-            if (states.contains(WidgetState.disabled)) {
-              return BaseColors.textDisable;
-            }
-            if (states.contains(WidgetState.pressed)) {
-              return BaseColors.primaryPressed;
-            }
-
-            if (states.contains(WidgetState.hovered)) {
-              return BaseColors.primaryHover;
-            }
-            return BaseColors
-                .allPrimaryPrimary10; // Defer to the widget's default.
+            return colors.primaryOnSurface; // Defer to the widget's default.
           },
         ),
         backgroundColor: WidgetStateProperty.resolveWith<Color?>(
           (Set<WidgetState> states) {
-            return BaseColors.transparent; // Defer to the widget's default.
+            if (states.contains(WidgetState.pressed)) {
+              return colors.primarySurface;
+            }
+
+            return colors.white; // Defer to the widget's default.
           },
         ),
       );
@@ -264,7 +240,6 @@ ButtonStyle _getButtonStyle(
             if (states.contains(WidgetState.pressed)) {
               return 0;
             }
-
             return 2;
           },
         ),
@@ -272,38 +247,17 @@ ButtonStyle _getButtonStyle(
         foregroundColor: WidgetStateProperty.resolveWith<Color?>(
           // Color of text and icon
           (Set<WidgetState> states) {
-            if (states.contains(WidgetState.disabled)) {
-              return BaseColors.textDisable;
-            }
-            if (states.contains(WidgetState.pressed) ||
-                states.contains(WidgetState.hovered)) {
-              return BaseColors.whiteColor;
-            }
-            return BaseColors
-                .allPrimaryPrimary10; // Defer to the widget's default.
+            return colors.primaryOnPrimary; // Defer to the widget's default.
           },
         ),
         backgroundColor: WidgetStateProperty.resolveWith<Color?>(
           (Set<WidgetState> states) {
-            if (states.contains(WidgetState.disabled)) {
-              return BaseColors.disableBackground;
-            }
-            if (states.contains(WidgetState.hovered)) {
-              return BaseColors.primaryHover;
-            }
             if (states.contains(WidgetState.pressed)) {
-              return BaseColors.primaryPressed;
+              return colors.primaryPressed;
             }
-            return BaseColors.primaryPrimary; // Defer to the widget's default.
+            return colors.primaryPrimary; // Defer to the widget's default.
           },
         ),
       );
   }
-}
-
-String _formatDuration(int seconds) {
-  final Duration duration = Duration(seconds: seconds);
-  final int minutes = duration.inMinutes;
-  final int remainingSeconds = duration.inSeconds % 60;
-  return '${minutes.toString().padLeft(2, '0')}:${remainingSeconds.toString().padLeft(2, '0')}';
 }
