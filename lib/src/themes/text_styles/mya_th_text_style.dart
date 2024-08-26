@@ -12,7 +12,7 @@ final myaThTextStyle = MyaTextStyle(
   displayMedium: TextStyle(
     fontWeight: kFontWeight2,
     fontSize: kFontScale13,
-    height: kLineHeight13,
+    height: kLineHeight13 / kFontScale13,
     letterSpacing: kLetterSpacing5,
   ),
   displaySmall: TextStyle(

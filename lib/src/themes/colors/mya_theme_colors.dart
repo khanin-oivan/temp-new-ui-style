@@ -10,6 +10,7 @@ class MyaThemeColors extends ThemeExtension<MyaThemeColors> {
     required this.blackWhiteOverlay,
     required this.mainOverlay,
     required this.neutral,
+    required this.transparent,
     required this.bgBg,
     required this.bgContainer,
     required this.bgContainerSection,
@@ -73,6 +74,7 @@ class MyaThemeColors extends ThemeExtension<MyaThemeColors> {
   final Color blackWhiteOverlay;
   final Color mainOverlay;
   final Color neutral;
+  final Color transparent;
 
   // common/background
   final Color bgBg;
