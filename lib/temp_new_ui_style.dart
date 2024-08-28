@@ -3,6 +3,7 @@
 /// More dartdocs go here.
 library temp_new_ui_style;
 
+export './src/widgets/atoms/atoms.dart';
 export './src/themes/themes.dart';
 export './src/utils/utils.dart';
 

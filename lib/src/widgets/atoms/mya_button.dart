@@ -1,11 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:temp_new_ui_style/src/themes/colors/mya_theme_colors.dart';
 import 'package:temp_new_ui_style/src/themes/text_styles/mya_text_style.dart';
-import 'package:temp_new_ui_style/src/utils/enum.dart';
 import 'package:temp_new_ui_style/temp_new_ui_style.dart';
 
-class ChmButtonCountdown extends StatefulWidget {
-  const ChmButtonCountdown({
+enum MyaButtonStyle { filled, tonalFilled, text, outlined, elevated }
+
+enum MyaButtonSize { large, small }
+
+enum MyaButtonTheme { primary, warning, error, success }
+
+class MyaButton extends StatefulWidget {
+  const MyaButton({
     super.key,
     required this.label,
     required this.onPressed,
@@ -20,17 +25,17 @@ class ChmButtonCountdown extends StatefulWidget {
   final MyaButtonTheme theme;
   final MyaButtonStyle style;
   final MyaButtonSize size;
-  final Function()? onPressed;
+  final void Function()? onPressed;
   final String label;
   final String? leadingIconKey;
   final String? trailingIconKey;
   final double? width;
 
   @override
-  State<ChmButtonCountdown> createState() => _ChmButtonCountdownState();
+  State<MyaButton> createState() => _MyaButtonState();
 }
 
-class _ChmButtonCountdownState extends State<ChmButtonCountdown> {
+class _MyaButtonState extends State<MyaButton> {
   late bool isLargeButton;
   late double iconSize;
   bool isDisable = false;
